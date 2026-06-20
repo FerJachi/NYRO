@@ -26,12 +26,6 @@ const INJECTED_STYLES = `
   animation:ch-grain 8s steps(10) infinite;
   pointer-events:none; z-index:10;
 }
-.ch-grid {
-  background-image:
-    linear-gradient(rgba(45,212,191,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(45,212,191,0.04) 1px, transparent 1px);
-  background-size:80px 80px;
-}
 @keyframes ch-glow-pulse {
   0%,100%{ transform:translate(-50%,-50%) scale(1); opacity:0.6; }
   50%{ transform:translate(-50%,-50%) scale(1.15); opacity:1; }
@@ -177,9 +171,6 @@ export default function CinematicHero({ onEnter }: CinematicHeroProps) {
         fontFamily: "'Neue Haas Grotesk','Inter',system-ui,'Helvetica Neue',sans-serif",
       }}
     >
-      {/* Grid background */}
-      <div className="ch-grid" aria-hidden="true" style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }} />
-
       {/* ── Centered content column ── */}
       <div style={{
         position: 'relative', zIndex: 2,
@@ -189,19 +180,6 @@ export default function CinematicHero({ onEnter }: CinematicHeroProps) {
         padding: '24px 24px 40px',
         gap: '32px',
       }}>
-
-        {/* Badge 1 — top-right, desktop only, appears during entrance animation */}
-        {!isMobile && (
-          <div className="ch-badge" style={{ ...badgeBase, top: '10%', right: '5%' }}>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
-              <path d="M9 1.5L3.5 9H8l-1 5.5 5.5-8H8.5L9 1.5z" fill="#2DD4BF"/>
-            </svg>
-            <div>
-              <div style={{ fontSize: '11px', fontWeight: 700, color: 'white', marginBottom: '1px' }}>AI Running</div>
-              <div style={{ fontSize: '9px', fontWeight: 300, color: 'rgba(255,255,255,0.45)' }}>All systems automated</div>
-            </div>
-          </div>
-        )}
 
         {/* ── Logo + teal glow ── */}
         <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -262,20 +240,6 @@ export default function CinematicHero({ onEnter }: CinematicHeroProps) {
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </NyroButton>
-
-        {/* Badge 2 — bottom-left, desktop only, appears during entrance animation */}
-        {!isMobile && (
-          <div className="ch-badge" style={{ ...badgeBase, bottom: '15%', left: '5%' }}>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
-              <circle cx="8" cy="8" r="6.5" stroke="#2DD4BF" strokeWidth="1.4"/>
-              <path d="M5.5 8l2 2 3-3.5" stroke="#2DD4BF" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            <div>
-              <div style={{ fontSize: '11px', fontWeight: 700, color: 'white', marginBottom: '1px' }}>CEO is Away</div>
-              <div style={{ fontSize: '9px', fontWeight: 300, color: 'rgba(255,255,255,0.45)' }}>Business never stopped</div>
-            </div>
-          </div>
-        )}
 
       </div>
     </section>
