@@ -208,7 +208,7 @@ function TimelineMonth({
           width: '100%',
           height: '100%',
           objectFit: 'cover',
-          opacity: 0.55,
+          opacity: 0.25,
           mixBlendMode: 'screen',
           zIndex: 0,
         }}
@@ -221,7 +221,7 @@ function TimelineMonth({
           inset: 0,
           width: '100%',
           height: '100%',
-          opacity: 0.45,
+          opacity: 0.75,
           zIndex: 1,
         }}
       />
@@ -229,7 +229,7 @@ function TimelineMonth({
       <div style={{
         position: 'absolute',
         inset: 0,
-        background: 'rgba(0,0,0,0.1)',
+        background: 'rgba(0,0,0,0.35)',
         zIndex: 2,
       }} />
 
