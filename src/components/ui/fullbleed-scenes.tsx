@@ -146,6 +146,13 @@ function FullbleedScene({
         background: '#000',
       }}
     >
+      <div style={{
+        position: 'absolute', top: 0, left: 0, right: 0, height: '1px',
+        background: 'linear-gradient(to right, transparent 0%, rgba(45,212,191,0.3) 20%, rgba(45,212,191,0.8) 50%, rgba(45,212,191,0.3) 80%, transparent 100%)',
+        boxShadow: '0 0 20px 2px rgba(45,212,191,0.25), 0 0 60px 4px rgba(45,212,191,0.1)',
+        zIndex: 20,
+      }} />
+
       <video
         src={scene.videoSrc}
         autoPlay
@@ -359,6 +366,13 @@ function FullbleedScene({
           }} />
         ))}
       </div>
+
+      <div style={{
+        position: 'absolute', bottom: 0, left: 0, right: 0, height: '1px',
+        background: 'linear-gradient(to right, transparent 0%, rgba(45,212,191,0.3) 20%, rgba(45,212,191,0.8) 50%, rgba(45,212,191,0.3) 80%, transparent 100%)',
+        boxShadow: '0 0 20px 2px rgba(45,212,191,0.25), 0 0 60px 4px rgba(45,212,191,0.1)',
+        zIndex: 20,
+      }} />
 
       {/* Fullscreen video overlay */}
       {isPlaying && (
