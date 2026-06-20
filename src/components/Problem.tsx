@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { TestimonialStack, type Testimonial } from '@/components/ui/glass-testimonial-swiper'
 import { Phone, Plane, Dumbbell, Coffee, Moon } from 'lucide-react'
+import { MeshGradient } from '@paper-design/shaders-react'
 import NyroMeshGradient from './ui/nyro-mesh-gradient'
 import LazyGradient from './ui/lazy-gradient'
 
@@ -111,6 +112,15 @@ export default function Problem() {
           position: 'relative', overflow: 'hidden',
         }}
       >
+        {/* Paper-design mesh gradient base */}
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
+          <MeshGradient
+            style={{ width: '100%', height: '100%' }}
+            colors={['#000000', '#010c09', '#021510', '#052e1f', '#000000']}
+            speed={0.3}
+          />
+        </div>
+
         {/* Mesh gradient */}
         <LazyGradient>
           <NyroMeshGradient

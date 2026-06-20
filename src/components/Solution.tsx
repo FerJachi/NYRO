@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Users, DollarSign, Package, Brain, Sliders } from 'lucide-react'
+import { MeshGradient } from '@paper-design/shaders-react'
 import { LampContainer } from './ui/lamp'
 import RadialOrbitalTimeline from './ui/radial-orbital-timeline'
 import type { TimelineItem } from './ui/radial-orbital-timeline'
@@ -271,11 +272,19 @@ export default function Solution() {
           </div>
 
           {/* CTA */}
-          <div style={{ padding: `120px ${hPad} 120px`, textAlign: 'center' }}>
+          <div style={{ padding: `120px ${hPad} 120px`, textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
+              <MeshGradient
+                style={{ width: '100%', height: '100%' }}
+                colors={['#000000', '#011a14', '#032e22', '#0a4a35', '#000000']}
+                speed={0.45}
+              />
+            </div>
             <motion.div
               initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+              style={{ position: 'relative', zIndex: 1 }}
             >
               <p style={{
                 fontSize: 'clamp(28px, 3.5vw, 48px)', fontWeight: 200,

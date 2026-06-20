@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { MeshGradient } from '@paper-design/shaders-react'
 import CinematicFooter from './ui/motion-footer'
 import NyroMeshGradient from './ui/nyro-mesh-gradient'
 import LazyGradient from './ui/lazy-gradient'
@@ -182,6 +183,15 @@ export default function Campaign() {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
+          {/* Mesh gradient base */}
+          <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
+            <MeshGradient
+              style={{ width: '100%', height: '100%' }}
+              colors={['#000000', '#011a14', '#032e22', '#0a4a35', '#000000']}
+              speed={0.4}
+            />
+          </div>
+
           <video
             src="/assets/videos/nyro-website-logo.mp4"
             autoPlay
@@ -195,20 +205,21 @@ export default function Campaign() {
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              zIndex: 0,
+              opacity: 0.7,
+              zIndex: 1,
             }}
           />
 
           <div style={{
             position: 'absolute',
             inset: 0,
-            background: 'rgba(0,0,0,0.35)',
-            zIndex: 1,
+            background: 'rgba(0,0,0,0.3)',
+            zIndex: 2,
           }} />
 
           <div style={{
             position: 'relative',
-            zIndex: 2,
+            zIndex: 3,
             textAlign: 'center',
           }}>
             <p style={{

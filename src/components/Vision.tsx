@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import nyroLogo from '../assets/nyro-logo-website.png'
+import { MeshGradient } from '@paper-design/shaders-react'
 
 import LiquidGradient from './ui/liquid-gradient'
 import NyroMeshGradient from './ui/nyro-mesh-gradient'
@@ -76,6 +77,15 @@ export default function Vision() {
           overflow: 'hidden',
         }}
       >
+        {/* Paper-design mesh gradient base */}
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
+          <MeshGradient
+            style={{ width: '100%', height: '100%' }}
+            colors={['#000000', '#010f0c', '#021a14', '#063d2a', '#000000']}
+            speed={0.35}
+          />
+        </div>
+
         {/* Background layers */}
         <LazyGradient>
           <NyroMeshGradient
