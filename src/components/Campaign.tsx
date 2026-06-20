@@ -1,8 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Spotlight } from './ui/spotlight'
 import CinematicFooter from './ui/motion-footer'
 import NyroMeshGradient from './ui/nyro-mesh-gradient'
 import LazyGradient from './ui/lazy-gradient'
@@ -11,17 +8,10 @@ import CampaignTimeline from '@/components/ui/campaign-timeline'
 import FullbleedScenes from '@/components/ui/fullbleed-scenes'
 import { GradientText } from '@/components/ui/gradient-text'
 
-gsap.registerPlugin(ScrollTrigger)
-
-
-const EXPO: [number, number, number, number] = [0.16, 1, 0.3, 1]
-
 // ─── Main component ───────────────────────────────────────────────────────────
 const headingId = 'campaign-section-heading'
 
 export default function Campaign() {
-  const billboardWrapRef  = useRef<HTMLDivElement>(null)
-  const billboardVideoRef = useRef<HTMLVideoElement>(null)
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -29,21 +19,6 @@ export default function Campaign() {
     update()
     window.addEventListener('resize', update)
     return () => window.removeEventListener('resize', update)
-  }, [])
-
-  // GSAP billboard zoom — extended end for more cinematic travel
-  useEffect(() => {
-    const wrap  = billboardWrapRef.current
-    const video = billboardVideoRef.current
-    if (!wrap || !video) return
-    const st = ScrollTrigger.create({
-      trigger: wrap,
-      start: 'top 80%',
-      end: 'center 30%',
-      scrub: 1.5,
-      animation: gsap.to(video, { scale: 1.18, ease: 'none', transformOrigin: 'center center' }),
-    })
-    return () => st.kill()
   }, [])
 
   return (
@@ -419,93 +394,6 @@ export default function Campaign() {
             },
           ]}
         />
-
-        {/* ── BLOCK 6: Billboard video + "Puerto Rico's Future is Here." ─ */}
-        <div
-          className="billboard-moment"
-          style={{
-            position: 'relative', background: '#000000',
-            padding: isMobile ? '0 0 60px' : '0 0 80px',
-          }}
-        >
-          {/* Wide atmospheric teal glow behind billboard */}
-          <div aria-hidden="true" style={{
-            position: 'absolute', top: '50%', left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '120%', height: '600px', pointerEvents: 'none', zIndex: 0,
-            background: 'radial-gradient(ellipse 80% 100% at 50% 50%, rgba(13,148,136,0.06) 0%, transparent 70%)',
-          }} />
-
-          {/* Billboard video container — full width, 16:9, overflow clips GSAP zoom */}
-          <div
-            ref={billboardWrapRef}
-            style={{
-              position: 'relative', width: '100%', maxWidth: '100%',
-              aspectRatio: '16/9', overflow: 'hidden',
-              borderRadius: 0, zIndex: 1,
-              boxShadow: '0 0 80px rgba(45,212,191,0.08)',
-            }}
-          >
-            {/* Fallback background shown when video is absent or fails */}
-            <div aria-hidden="true" style={{
-              position: 'absolute', inset: 0, zIndex: 0,
-              background: 'linear-gradient(135deg, #030d0a 0%, #061a14 40%, #030d0a 100%)',
-            }} />
-
-            <video
-              ref={billboardVideoRef}
-              src="/assets/videos/billboard.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              data-video="billboard"
-              style={{
-                position: 'absolute', inset: 0, width: '100%', height: '100%',
-                objectFit: 'cover', display: 'block', zIndex: 1,
-                transformOrigin: 'center center', willChange: 'transform',
-              }}
-              onError={(e) => {
-                const video = e.target as HTMLVideoElement
-                video.style.display = 'none'
-              }}
-            />
-            <div style={{
-              position: 'absolute', inset: 0, zIndex: 2,
-              background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.6) 100%)',
-              pointerEvents: 'none',
-            }} />
-            <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="#2DD4BF" />
-          </div>
-
-          {/* Billboard text */}
-          <div style={{ marginTop: '64px', textAlign: 'center', position: 'relative', zIndex: 2 }}>
-            <motion.p
-              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.4, ease: EXPO }}
-              style={{
-                fontSize: 'clamp(30px, 4.2vw, 60px)', fontWeight: 200,
-                letterSpacing: '-0.03em', lineHeight: 1.1, color: 'white', marginBottom: '20px',
-              }}
-            >
-              Puerto Rico's Future is Here.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              style={{
-                fontSize: '11px', fontWeight: 500, letterSpacing: '0.36em',
-                textTransform: 'uppercase', color: 'rgba(255,255,255,0.22)', marginTop: '8px',
-              }}
-            >
-              The Operating System For Modern Businesses
-            </motion.p>
-          </div>
-        </div>
 
         <CinematicFooter />
       </section>
