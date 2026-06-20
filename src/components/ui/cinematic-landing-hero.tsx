@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
-import phonePng from '../../assets/phone.png'
 import nyroLogoWebsite from '../../assets/nyro-logo-website.png'
 import { NyroButton } from './rainbow-borders-button'
 
@@ -151,7 +150,6 @@ export default function CinematicHero({ onEnter }: CinematicHeroProps) {
   }
 
   // Responsive dimensions
-  const phoneW  = isMobile ? 'clamp(180px, 55vw, 280px)' : 'clamp(240px, 30vw, 400px)'
   const glowDia = isMobile ? '400px' : '700px'
 
   // ─── Badge base style ────────────────────────────────────────────────────────
@@ -205,10 +203,10 @@ export default function CinematicHero({ onEnter }: CinematicHeroProps) {
           </div>
         )}
 
-        {/* ── Phone + teal glow ── */}
+        {/* ── Logo + teal glow ── */}
         <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 
-          {/* Teal radial glow — behind phone, pulsing */}
+          {/* Teal radial glow — behind logo, pulsing */}
           <div
             className="ch-glow"
             aria-hidden="true"
@@ -222,60 +220,28 @@ export default function CinematicHero({ onEnter }: CinematicHeroProps) {
             }}
           />
 
-          {/* ── Phone wrapper — CSS grid, 3D tilt, entrance animation target ── */}
+          {/* Logo wrapper — 3D tilt + entrance animation target */}
           <div
             ref={phoneWrapperRef}
             className="ch-phone-wrap"
             style={{
               position: 'relative', zIndex: 1,
-              display: 'grid',
-              width: phoneW,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
               opacity: 0,
               transformStyle: 'preserve-3d',
             }}
           >
-            {/* ── Phone screen content — transparent so no rectangle bleeds outside phone ── */}
-            <div style={{
-              gridColumn: 1, gridRow: 1,
-              // Width-relative margins approximate the phone screen area.
-              // iPhone aspect ≈ 1:2.17 → top 8% height = 17% width, bottom 4% ≈ 9% width
-              margin: '17% 6.5% 9%',
-              borderRadius: '36px',
-              background: 'transparent',   // must be transparent — solid bg bleeds outside phone outline
-              zIndex: 0,
-              overflow: 'visible',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              position: 'relative',
-            }}>
-              {/* NYRO logo — clip-path strips white PNG corners, mix-blend-mode shows through phone screen */}
-              <img
-                ref={logoRef}
-                src={nyroLogoWebsite}
-                alt="NYRO"
-                style={{
-                  position: 'relative', zIndex: 1,
-                  width: '55%', height: 'auto', maxWidth: '160px', display: 'block',
-                  margin: '0 auto',
-                  mixBlendMode: 'screen',
-                  clipPath: 'circle(44% at 50% 48%)',
-                  filter: 'brightness(1.3) drop-shadow(0 0 24px rgba(45,212,191,0.7))',
-                  transformOrigin: 'center',
-                }}
-              />
-            </div>
-
-            {/* Phone PNG — on top via screen blend, makes non-phone areas transparent */}
             <img
-              src={phonePng}
-              alt=""
-              aria-hidden="true"
-              loading="eager"
+              ref={logoRef}
+              src={nyroLogoWebsite}
+              alt="NYRO"
               style={{
-                gridColumn: 1, gridRow: 1,
-                width: '100%', height: 'auto', display: 'block',
-                position: 'relative', zIndex: 1,
+                width: 'clamp(160px, 18vw, 260px)',
+                height: 'auto',
+                display: 'block',
                 mixBlendMode: 'screen',
-                filter: 'brightness(1.1) contrast(1.05)',
+                filter: 'brightness(1.3) drop-shadow(0 0 40px rgba(45,212,191,0.7))',
+                transformOrigin: 'center',
               }}
             />
           </div>
