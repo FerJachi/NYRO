@@ -51,8 +51,8 @@ function FullbleedScene({
     offset: ['start start', 'end start'],
   })
 
-  const bigWordY = useTransform(scrollYProgress, [0, 1], [0, 120])
-  const bigWordOpacity = useTransform(scrollYProgress, [0, 0.6, 1], [1, 0.5, 0])
+  const bigWordY = useTransform(scrollYProgress, [0, 1], [0, 100])
+  const bigWordOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0])
   const textY = useTransform(scrollYProgress, [0, 1], [0, -40])
   const contentOpacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 1, 0])
 
@@ -188,43 +188,27 @@ function FullbleedScene({
       <motion.div
         style={{
           position: 'absolute',
-          bottom: '-8%',
+          bottom: '-5%',
           left: '-1%',
-          zIndex: 3,
+          zIndex: 2,
           y: bigWordY,
           opacity: bigWordOpacity,
           pointerEvents: 'none',
           userSelect: 'none',
           lineHeight: 0.8,
-          width: '100%',
         }}
       >
-        <svg
-          width="100%"
-          height="auto"
-          viewBox={`0 0 ${Math.max(600, scene.bigWord.length * 220)} 320`}
-          preserveAspectRatio="xMinYMax meet"
-          style={{ display: 'block', overflow: 'visible' }}
-        >
-          <text
-            x="0"
-            y="280"
-            style={{
-              fontSize: '300px',
-              fontWeight: 900,
-              letterSpacing: '-0.06em',
-              fontFamily: 'inherit',
-              fill: 'none',
-              stroke: 'rgba(255,255,255,0.07)',
-              strokeWidth: '1',
-              strokeLinejoin: 'round',
-              strokeLinecap: 'round',
-              paintOrder: 'stroke fill',
-            }}
-          >
-            {scene.bigWord}
-          </text>
-        </svg>
+        <span style={{
+          fontSize: 'clamp(160px, 28vw, 420px)',
+          fontWeight: 900,
+          letterSpacing: '-0.06em',
+          color: 'rgba(255,255,255,0.04)',
+          display: 'block',
+          whiteSpace: 'nowrap',
+          fontFamily: 'inherit',
+        }}>
+          {scene.bigWord}
+        </span>
       </motion.div>
 
       <motion.div
