@@ -310,6 +310,7 @@ export default function Campaign() {
                 'rgba(2,20,40,0.9)',
               ],
               accentColor: '#2DD4BF',
+              videoSrc: '/assets/videos/billboard.mp4',
             },
             {
               month: 'Month 02',
@@ -330,6 +331,7 @@ export default function Campaign() {
                 'rgba(3,30,45,0.9)',
               ],
               accentColor: '#2DD4BF',
+              videoSrc: '/assets/videos/campaign-phone.mp4',
             },
             {
               month: 'Month 03',
@@ -350,6 +352,7 @@ export default function Campaign() {
                 'rgba(2,25,35,0.9)',
               ],
               accentColor: '#5EEAD4',
+              videoSrc: '/assets/videos/beach.mp4',
             },
             {
               month: 'Month 04',
@@ -370,6 +373,7 @@ export default function Campaign() {
                 'rgba(1,20,30,0.95)',
               ],
               accentColor: '#2DD4BF',
+              videoSrc: '/assets/videos/owner-breakfast.mp4',
             },
             {
               month: 'Month 05',
@@ -390,6 +394,7 @@ export default function Campaign() {
                 'rgba(3,28,38,0.95)',
               ],
               accentColor: '#5EEAD4',
+              videoSrc: '/assets/videos/miramar.mp4',
             },
             {
               month: 'Month 06',
@@ -410,6 +415,7 @@ export default function Campaign() {
                 'rgba(2,30,30,0.9)',
               ],
               accentColor: '#2DD4BF',
+              videoSrc: '/assets/videos/mall.mp4',
             },
           ]}
         />

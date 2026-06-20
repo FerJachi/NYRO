@@ -10,6 +10,7 @@ interface TimelineMonth {
   tactics: string[]
   gradientColors: string[]
   accentColor: string
+  videoSrc: string
 }
 
 interface CampaignTimelineProps {
@@ -194,6 +195,25 @@ function TimelineMonth({
         }}
       />
 
+      <video
+        src={data.videoSrc}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          opacity: 0.18,
+          mixBlendMode: 'screen',
+          zIndex: 0,
+        }}
+      />
+
       <canvas
         ref={canvasRef}
         style={{
@@ -202,7 +222,7 @@ function TimelineMonth({
           width: '100%',
           height: '100%',
           opacity: 0.9,
-          zIndex: 0,
+          zIndex: 1,
         }}
       />
 
@@ -210,7 +230,7 @@ function TimelineMonth({
         position: 'absolute',
         inset: 0,
         background: 'rgba(0,0,0,0.2)',
-        zIndex: 1,
+        zIndex: 2,
       }} />
 
       {/* Ghost number — Framer Motion parallax */}
