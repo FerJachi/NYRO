@@ -46,6 +46,7 @@ export default function Nav() {
   return (
     <>
       <nav
+        className="nav-materialize"
         style={{
           position: 'fixed',
           top: 0,

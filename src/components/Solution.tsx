@@ -200,7 +200,7 @@ export default function Solution() {
                 role="listitem"
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ type: 'spring', stiffness: 120, damping: 14, delay: i * 0.1 }}
                 onMouseEnter={() => setHoveredPill(i)}
                 onMouseLeave={() => setHoveredPill(null)}
                 data-hover

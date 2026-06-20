@@ -147,8 +147,9 @@ export default function Vision() {
             filter: 'blur(0px) brightness(1.3) drop-shadow(0 0 40px rgba(45,212,191,0.7))',
           }}
           transition={{
-            duration: 0.9,
-            ease: EXPO,
+            type: 'spring',
+            stiffness: 120,
+            damping: 14,
             delay: 0.2,
           }}
           style={{
@@ -161,11 +162,8 @@ export default function Vision() {
           }}
         />
 
-        {/* Control Without Presence */}
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: EXPO, delay: 0.7 }}
+        {/* Control Without Presence — word by word */}
+        <h1
           style={{
             fontSize: 'clamp(32px, 5vw, 72px)',
             fontWeight: 200,
@@ -178,8 +176,18 @@ export default function Vision() {
             position: 'relative',
           }}
         >
-          Control Without Presence
-        </motion.h1>
+          {'Control Without Presence'.split(' ').map((word, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: EXPO, delay: 0.7 + i * 0.08 }}
+              style={{ display: 'inline-block', marginRight: '0.28em' }}
+            >
+              {word}
+            </motion.span>
+          ))}
+        </h1>
 
         {/* People. Control. Freedom. */}
         <motion.div
@@ -197,9 +205,9 @@ export default function Vision() {
           {['People.', 'Control.', 'Freedom.'].map((word, i) => (
             <motion.span
               key={word}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.1 + i * 0.15, duration: 0.5 }}
+              initial={{ opacity: 0, filter: 'blur(4px)' }}
+              animate={{ opacity: 1, filter: 'blur(0px)' }}
+              transition={{ delay: 1.1 + i * 0.2, duration: 0.6, ease: EXPO }}
               style={{
                 fontSize: 'clamp(14px, 1.8vw, 20px)',
                 fontWeight: 300,

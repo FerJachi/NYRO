@@ -203,21 +203,27 @@ export default function Problem() {
             03 / The Problem
           </motion.p>
 
-          {/* Opening statement */}
-          <motion.p
-            initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 1.2, ease: EXPO }}
+          {/* Opening statement — word by word */}
+          <p
             style={{
               fontSize: 'clamp(30px,3.8vw,56px)', fontWeight: 200,
               lineHeight: 1.25, letterSpacing: '-0.025em',
               maxWidth: '800px', color: 'rgba(255,255,255,0.92)', marginBottom: '96px',
             }}
           >
-            You built a business. Now the business owns you.{' '}
-            Every call, every decision, every moment.{' '}
-            Your presence is required.
-          </motion.p>
+            {['You','built','a','business.','Now','the','business','owns','you.','Every','call,','every','decision,','every','moment.','Your','presence','is','required.'].map((word, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, ease: [0.16,1,0.3,1], delay: i * 0.06 }}
+                style={{ display: 'inline-block', marginRight: '0.28em' }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </p>
 
           {/* Divider */}
           <motion.div
@@ -228,19 +234,25 @@ export default function Problem() {
           />
 
           {/* Interruption scenario swiper */}
-          <div style={{
-            position: 'relative',
-            height: '480px',
-            width: '100%',
-            maxWidth: '720px',
-            margin: '64px auto 96px',
-            padding: '0 24px',
-          }}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.16,1,0.3,1] }}
+            style={{
+              position: 'relative',
+              height: '480px',
+              width: '100%',
+              maxWidth: '720px',
+              margin: '64px auto 96px',
+              padding: '0 24px',
+            }}
+          >
             <TestimonialStack
               testimonials={problemCards}
               visibleBehind={2}
             />
-          </div>
+          </motion.div>
 
           {/* Bottom transition */}
           <motion.div

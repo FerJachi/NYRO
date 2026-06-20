@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 import { MeshGradient } from '@paper-design/shaders-react'
 import CinematicFooter from './ui/motion-footer'
 import NyroMeshGradient from './ui/nyro-mesh-gradient'
@@ -87,26 +88,39 @@ export default function Campaign() {
             margin: '0 auto',
             maxWidth: '900px',
           }}>
-            <GradientText
-              as="span"
+            <motion.span
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16,1,0.3,1], delay: 0.1 }}
+              style={{ display: 'block' }}
+            >
+              <GradientText
+                as="span"
+                style={{
+                  fontSize: 'inherit',
+                  fontWeight: 'inherit',
+                  letterSpacing: 'inherit',
+                  lineHeight: 'inherit',
+                  color: 'white',
+                }}
+              >
+                Wherever you are.
+              </GradientText>
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16,1,0.3,1], delay: 0.22 }}
               style={{
-                fontSize: 'inherit',
-                fontWeight: 'inherit',
-                letterSpacing: 'inherit',
-                lineHeight: 'inherit',
-                color: 'white',
+                color: 'rgba(255,255,255,0.9)',
+                display: 'block',
+                marginTop: '8px',
               }}
             >
-              Wherever you are.
-            </GradientText>
-            <br />
-            <span style={{
-              color: 'rgba(255,255,255,0.9)',
-              display: 'block',
-              marginTop: '8px',
-            }}>
               NYRO is there.
-            </span>
+            </motion.span>
           </h2>
 
           <p style={{
@@ -233,15 +247,21 @@ export default function Campaign() {
             zIndex: 3,
             textAlign: 'center',
           }}>
-            <p style={{
-              fontSize: '11px',
-              fontWeight: 600,
-              letterSpacing: '0.35em',
-              textTransform: 'uppercase',
-              color: 'rgba(45,212,191,0.7)',
-            }}>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.16,1,0.3,1], delay: 0.3 }}
+              style={{
+                fontSize: '11px',
+                fontWeight: 600,
+                letterSpacing: '0.35em',
+                textTransform: 'uppercase',
+                color: 'rgba(45,212,191,0.7)',
+              }}
+            >
               05 / The Campaign
-            </p>
+            </motion.p>
           </div>
         </div>
 
@@ -270,7 +290,18 @@ export default function Campaign() {
             maxWidth: '700px',
             margin: '0 0 16px 0',
           }}>
-            Six months. One mission.
+            {['Six months.', 'One mission.'].map((phrase, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 24, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, ease: [0.16,1,0.3,1], delay: 0.1 + i * 0.12 }}
+                style={{ display: 'block' }}
+              >
+                {phrase}
+              </motion.span>
+            ))}
           </h2>
           <p style={{
             fontSize: '16px',

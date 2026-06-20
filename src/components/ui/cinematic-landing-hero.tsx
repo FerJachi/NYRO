@@ -213,6 +213,7 @@ export default function CinematicHero({ onEnter }: CinematicHeroProps) {
               ref={logoRef}
               src={nyroLogoWebsite}
               alt="NYRO"
+              className="logo-breath"
               style={{
                 width: 'clamp(160px, 18vw, 260px)',
                 height: 'auto',

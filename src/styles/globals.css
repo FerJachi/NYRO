@@ -490,3 +490,45 @@ body.cursor-hover #cursor-ring {
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
+
+/* ── Universal scroll entrance ──────────────────────────────────────── */
+.animate-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.animate-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Nav materialize on first load ──────────────────────────────────── */
+@keyframes navMaterialize {
+  from { opacity: 0; filter: blur(8px); }
+  to   { opacity: 1; filter: blur(0px); }
+}
+.nav-materialize {
+  animation: navMaterialize 0.8s cubic-bezier(0.16,1,0.3,1) 0.5s both;
+}
+
+/* ── Landing logo breath ─────────────────────────────────────────────── */
+@keyframes logoBreath {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); }
+}
+.logo-breath {
+  animation: logoBreath 3s ease-in-out 1.5s infinite;
+}
+
+/* ── prefers-reduced-motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
