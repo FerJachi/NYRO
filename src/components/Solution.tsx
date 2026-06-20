@@ -273,6 +273,15 @@ export default function Solution() {
 
           {/* CTA */}
           <div style={{ padding: `120px ${hPad} 120px`, textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+            <div style={{
+              position: 'absolute',
+              top: 0, left: 0, right: 0,
+              height: '1px',
+              background: 'linear-gradient(to right, transparent 0%, rgba(45,212,191,0.3) 20%, rgba(45,212,191,0.8) 50%, rgba(45,212,191,0.3) 80%, transparent 100%)',
+              boxShadow: '0 0 20px 2px rgba(45,212,191,0.25), 0 0 60px 4px rgba(45,212,191,0.1)',
+              zIndex: 10,
+            }} />
+
             <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
               <MeshGradient
                 style={{ width: '100%', height: '100%' }}
@@ -327,6 +336,15 @@ export default function Solution() {
                 See It In Action
               </motion.button>
             </motion.div>
+
+            <div style={{
+              position: 'absolute',
+              bottom: 0, left: 0, right: 0,
+              height: '1px',
+              background: 'linear-gradient(to right, transparent 0%, rgba(45,212,191,0.3) 20%, rgba(45,212,191,0.8) 50%, rgba(45,212,191,0.3) 80%, transparent 100%)',
+              boxShadow: '0 0 20px 2px rgba(45,212,191,0.25), 0 0 60px 4px rgba(45,212,191,0.1)',
+              zIndex: 10,
+            }} />
           </div>
         </div>
 
