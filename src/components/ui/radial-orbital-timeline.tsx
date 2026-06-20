@@ -62,7 +62,7 @@ function getStatusConfig(status: 'completed' | 'in-progress' | 'pending') {
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-const RADIUS = 160 // px — orbit radius (Change 3)
+const RADIUS = 220 // px — orbit radius
 
 export default function RadialOrbitalTimeline({ timelineData }: Props) {
   const [selectedId, setSelectedId] = useState<number | null>(null)
@@ -202,9 +202,8 @@ export default function RadialOrbitalTimeline({ timelineData }: Props) {
         aria-hidden="true"
         className="absolute z-10 flex items-center justify-center rounded-full"
         style={{
-          // Change 1 + Change 3: w-14 h-14 = 56px
-          width:               56,
-          height:              56,
+          width:               80,
+          height:              80,
           background:          'rgba(13,148,136,0.3)',
           border:              '1px solid rgba(45,212,191,0.4)',
           backdropFilter:      'blur(8px)',
@@ -219,8 +218,8 @@ export default function RadialOrbitalTimeline({ timelineData }: Props) {
           src={nyroLogo}
           alt="NYRO"
           style={{
-            width:      42,
-            height:     42,
+            width:      56,
+            height:     56,
             objectFit:  'contain',
             mixBlendMode: 'screen',
             filter:     'brightness(1.3) drop-shadow(0 0 8px rgba(45,212,191,0.8))',
@@ -269,8 +268,8 @@ export default function RadialOrbitalTimeline({ timelineData }: Props) {
                   : 'bg-black/80 text-white/80 border-[rgba(45,212,191,0.3)] hover:border-[#2DD4BF]'
               )}
               style={{
-                width:      48,
-                height:     48,
+                width:      56,
+                height:     56,
                 cursor:     'pointer',
                 transform:  `scale(${isSelected ? 1.2 : isRelated ? 1.08 : 1})`,
                 boxShadow:  isSelected

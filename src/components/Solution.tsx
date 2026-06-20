@@ -265,7 +265,7 @@ export default function Solution() {
               Click any pillar to explore. Drag to spin.
             </motion.p>
 
-            <div style={{ height: '480px', overflow: 'hidden', position: 'relative', background: '#000' }}>
+            <div style={{ height: '600px', overflow: 'hidden', position: 'relative', background: '#000' }}>
               <RadialOrbitalTimeline timelineData={nyroOrbitalData} />
             </div>
           </div>
