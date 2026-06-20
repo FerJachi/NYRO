@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
 import CinematicFooter from './ui/motion-footer'
 import NyroMeshGradient from './ui/nyro-mesh-gradient'
 import LazyGradient from './ui/lazy-gradient'
@@ -171,57 +170,56 @@ export default function Campaign() {
           ]}
         />
 
-        {/* ── BLOCK 3: Campaign opener — 05 label + NYRO wordmark ──────── */}
-        <div
-          style={{
-            position: 'relative', width: '100%', textAlign: 'center',
-            display: 'flex', flexDirection: 'column',
-            alignItems: 'center', justifyContent: 'center',
-            overflow: 'hidden', background: '#000000',
-            padding: isMobile ? '80px 24px 48px' : '80px 48px 48px',
-          }}
-        >
-          {/* Section label */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
+        {/* ── BLOCK 3: Campaign opener — logo video fullscreen ─────────── */}
+        <div style={{
+          position: 'relative',
+          width: '100%',
+          height: '100svh',
+          overflow: 'hidden',
+          background: '#000',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+          <video
+            src="/assets/videos/nyro-website-logo.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
             style={{
-              fontSize: '11px', fontWeight: 600, letterSpacing: '0.32em',
-              textTransform: 'uppercase', color: 'rgba(45,212,191,0.6)',
-              marginBottom: '48px', textAlign: 'center',
-              position: 'relative', zIndex: 2,
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              zIndex: 0,
             }}
-          >
-            05 / The Campaign
-          </motion.p>
+          />
 
-          {/* Teal atmospheric glow — top left */}
-          <div aria-hidden="true" style={{
-            position: 'absolute', top: 0, left: 0,
-            width: '600px', height: '600px', pointerEvents: 'none', zIndex: 0,
-            background: 'radial-gradient(ellipse at top left, rgba(13,148,136,0.14) 0%, transparent 60%)',
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'rgba(0,0,0,0.35)',
+            zIndex: 1,
           }} />
 
-          {/* NYRO wordmark */}
-          <div style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
-            <div style={{
-              fontSize: 'clamp(48px, 10vw, 120px)', fontWeight: 800,
-              letterSpacing: '-0.055em', lineHeight: 1,
-              background: 'linear-gradient(90deg, #0D9488 0%, #2DD4BF 40%, #ffffff 60%, #2DD4BF 80%, #0D9488 100%)',
-              backgroundSize: '200% auto',
-              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
-              animation: 'shinyTextSweep 3s linear infinite',
+          <div style={{
+            position: 'relative',
+            zIndex: 2,
+            textAlign: 'center',
+          }}>
+            <p style={{
+              fontSize: '11px',
+              fontWeight: 600,
+              letterSpacing: '0.35em',
+              textTransform: 'uppercase',
+              color: 'rgba(45,212,191,0.7)',
             }}>
-              NYRO
-            </div>
-            <div style={{
-              fontSize: '11px', fontWeight: 500, letterSpacing: '0.35em',
-              textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)',
-              marginTop: '16px', textAlign: 'center',
-            }}>
-              Puerto Rico · Billboard Campaign 2025
-            </div>
+              05 / The Campaign
+            </p>
           </div>
         </div>
 
