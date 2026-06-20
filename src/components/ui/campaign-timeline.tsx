@@ -251,7 +251,7 @@ function TimelineMonth({
           fontSize: 'clamp(160px, 28vw, 420px)',
           fontWeight: 900,
           letterSpacing: '-0.06em',
-          color: 'rgba(255,255,255,0.04)',
+          color: 'rgba(255,255,255,0.12)',
           display: 'block',
           whiteSpace: 'nowrap',
         }}>
