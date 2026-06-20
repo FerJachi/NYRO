@@ -84,148 +84,7 @@ export default function Campaign() {
           pointerEvents: 'none', zIndex: 5,
         }} />
 
-        {/* ── PART A.1: NYRO wordmark / Billboard Campaign opener ───────── */}
-        <div
-          style={{
-            position: 'relative', width: '100%', textAlign: 'center',
-            display: 'flex', flexDirection: 'column',
-            alignItems: 'center', justifyContent: 'center',
-            overflow: 'hidden', background: '#000000',
-            padding: isMobile ? '80px 24px 48px' : '80px 48px 48px',
-          }}
-        >
-          {/* Section label */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-            style={{
-              fontSize: '11px', fontWeight: 600, letterSpacing: '0.32em',
-              textTransform: 'uppercase', color: 'rgba(45,212,191,0.6)',
-              marginBottom: '48px', textAlign: 'center',
-              position: 'relative', zIndex: 2,
-            }}
-          >
-            05 / The Campaign
-          </motion.p>
-
-          {/* Teal atmospheric glow — top left */}
-          <div aria-hidden="true" style={{
-            position: 'absolute', top: 0, left: 0,
-            width: '600px', height: '600px', pointerEvents: 'none', zIndex: 0,
-            background: 'radial-gradient(ellipse at top left, rgba(13,148,136,0.14) 0%, transparent 60%)',
-          }} />
-
-          {/* NYRO wordmark */}
-          <div style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
-            <div style={{
-              fontSize: 'clamp(48px, 10vw, 120px)', fontWeight: 800,
-              letterSpacing: '-0.055em', lineHeight: 1,
-              background: 'linear-gradient(90deg, #0D9488 0%, #2DD4BF 40%, #ffffff 60%, #2DD4BF 80%, #0D9488 100%)',
-              backgroundSize: '200% auto',
-              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
-              animation: 'shinyTextSweep 3s linear infinite',
-            }}>
-              NYRO
-            </div>
-            <div style={{
-              fontSize: '11px', fontWeight: 500, letterSpacing: '0.35em',
-              textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)',
-              marginTop: '16px', textAlign: 'center',
-            }}>
-              Puerto Rico · Billboard Campaign 2025
-            </div>
-          </div>
-        </div>
-
-        {/* ── PART A.2: Billboard image with spotlight zoom ──────────────── */}
-        <div
-          className="billboard-moment"
-          style={{
-            position: 'relative', background: '#000000',
-            padding: isMobile ? '0 0 60px' : '0 0 80px',
-          }}
-        >
-          {/* Wide atmospheric teal glow behind billboard */}
-          <div aria-hidden="true" style={{
-            position: 'absolute', top: '50%', left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '120%', height: '600px', pointerEvents: 'none', zIndex: 0,
-            background: 'radial-gradient(ellipse 80% 100% at 50% 50%, rgba(13,148,136,0.06) 0%, transparent 70%)',
-          }} />
-
-          {/* Billboard video container — full width, 16:9, overflow clips GSAP zoom */}
-          <div
-            ref={billboardWrapRef}
-            style={{
-              position: 'relative', width: '100%', maxWidth: '100%',
-              aspectRatio: '16/9', overflow: 'hidden',
-              borderRadius: 0, zIndex: 1,
-              boxShadow: '0 0 80px rgba(45,212,191,0.08)',
-            }}
-          >
-            {/* Fallback background shown when video is absent or fails */}
-            <div aria-hidden="true" style={{
-              position: 'absolute', inset: 0, zIndex: 0,
-              background: 'linear-gradient(135deg, #030d0a 0%, #061a14 40%, #030d0a 100%)',
-            }} />
-
-            <video
-              ref={billboardVideoRef}
-              src="/assets/videos/billboard.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              data-video="billboard"
-              style={{
-                position: 'absolute', inset: 0, width: '100%', height: '100%',
-                objectFit: 'cover', display: 'block', zIndex: 1,
-                transformOrigin: 'center center', willChange: 'transform',
-              }}
-              onError={(e) => {
-                const video = e.target as HTMLVideoElement
-                video.style.display = 'none'
-              }}
-            />
-            <div style={{
-              position: 'absolute', inset: 0, zIndex: 2,
-              background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.6) 100%)',
-              pointerEvents: 'none',
-            }} />
-            <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="#2DD4BF" />
-          </div>
-
-          {/* Billboard text — "Puerto Rico's Future is Here." only, no duplicate NYRO */}
-          <div style={{ marginTop: '64px', textAlign: 'center', position: 'relative', zIndex: 2 }}>
-            <motion.p
-              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.4, ease: EXPO }}
-              style={{
-                fontSize: 'clamp(30px, 4.2vw, 60px)', fontWeight: 200,
-                letterSpacing: '-0.03em', lineHeight: 1.1, color: 'white', marginBottom: '20px',
-              }}
-            >
-              Puerto Rico's Future is Here.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              style={{
-                fontSize: '11px', fontWeight: 500, letterSpacing: '0.36em',
-                textTransform: 'uppercase', color: 'rgba(255,255,255,0.22)', marginTop: '8px',
-              }}
-            >
-              The Operating System For Modern Businesses
-            </motion.p>
-          </div>
-        </div>
-
-        {/* ── Wherever you are heading ─────────────────────────────────── */}
+        {/* ── BLOCK 1: Wherever you are ────────────────────────────────── */}
         <div style={{
           width: '100%',
           background: '#000',
@@ -289,7 +148,7 @@ export default function Campaign() {
           </p>
         </div>
 
-        {/* ── PART B: Lifestyle video scenes ──────────────────────────── */}
+        {/* ── BLOCK 2: Lifestyle video scenes ──────────────────────────── */}
         <FullbleedScenes
           scenes={[
             {
@@ -337,7 +196,61 @@ export default function Campaign() {
           ]}
         />
 
-        {/* ── 06 / The Plan heading ────────────────────────────────────── */}
+        {/* ── BLOCK 3: Campaign opener — 05 label + NYRO wordmark ──────── */}
+        <div
+          style={{
+            position: 'relative', width: '100%', textAlign: 'center',
+            display: 'flex', flexDirection: 'column',
+            alignItems: 'center', justifyContent: 'center',
+            overflow: 'hidden', background: '#000000',
+            padding: isMobile ? '80px 24px 48px' : '80px 48px 48px',
+          }}
+        >
+          {/* Section label */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+            style={{
+              fontSize: '11px', fontWeight: 600, letterSpacing: '0.32em',
+              textTransform: 'uppercase', color: 'rgba(45,212,191,0.6)',
+              marginBottom: '48px', textAlign: 'center',
+              position: 'relative', zIndex: 2,
+            }}
+          >
+            05 / The Campaign
+          </motion.p>
+
+          {/* Teal atmospheric glow — top left */}
+          <div aria-hidden="true" style={{
+            position: 'absolute', top: 0, left: 0,
+            width: '600px', height: '600px', pointerEvents: 'none', zIndex: 0,
+            background: 'radial-gradient(ellipse at top left, rgba(13,148,136,0.14) 0%, transparent 60%)',
+          }} />
+
+          {/* NYRO wordmark */}
+          <div style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
+            <div style={{
+              fontSize: 'clamp(48px, 10vw, 120px)', fontWeight: 800,
+              letterSpacing: '-0.055em', lineHeight: 1,
+              background: 'linear-gradient(90deg, #0D9488 0%, #2DD4BF 40%, #ffffff 60%, #2DD4BF 80%, #0D9488 100%)',
+              backgroundSize: '200% auto',
+              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+              animation: 'shinyTextSweep 3s linear infinite',
+            }}>
+              NYRO
+            </div>
+            <div style={{
+              fontSize: '11px', fontWeight: 500, letterSpacing: '0.35em',
+              textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)',
+              marginTop: '16px', textAlign: 'center',
+            }}>
+              Puerto Rico · Billboard Campaign 2025
+            </div>
+          </div>
+        </div>
+
+        {/* ── BLOCK 4: The Plan heading ─────────────────────────────────── */}
         <div style={{
           background: '#000',
           padding: '100px 56px 60px',
@@ -375,7 +288,7 @@ export default function Campaign() {
           </p>
         </div>
 
-        {/* ── PART B: Campaign Timeline ────────────────────────────────── */}
+        {/* ── BLOCK 5: Campaign Timeline ────────────────────────────────── */}
         <CampaignTimeline
           months={[
             {
@@ -500,6 +413,93 @@ export default function Campaign() {
             },
           ]}
         />
+
+        {/* ── BLOCK 6: Billboard video + "Puerto Rico's Future is Here." ─ */}
+        <div
+          className="billboard-moment"
+          style={{
+            position: 'relative', background: '#000000',
+            padding: isMobile ? '0 0 60px' : '0 0 80px',
+          }}
+        >
+          {/* Wide atmospheric teal glow behind billboard */}
+          <div aria-hidden="true" style={{
+            position: 'absolute', top: '50%', left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '120%', height: '600px', pointerEvents: 'none', zIndex: 0,
+            background: 'radial-gradient(ellipse 80% 100% at 50% 50%, rgba(13,148,136,0.06) 0%, transparent 70%)',
+          }} />
+
+          {/* Billboard video container — full width, 16:9, overflow clips GSAP zoom */}
+          <div
+            ref={billboardWrapRef}
+            style={{
+              position: 'relative', width: '100%', maxWidth: '100%',
+              aspectRatio: '16/9', overflow: 'hidden',
+              borderRadius: 0, zIndex: 1,
+              boxShadow: '0 0 80px rgba(45,212,191,0.08)',
+            }}
+          >
+            {/* Fallback background shown when video is absent or fails */}
+            <div aria-hidden="true" style={{
+              position: 'absolute', inset: 0, zIndex: 0,
+              background: 'linear-gradient(135deg, #030d0a 0%, #061a14 40%, #030d0a 100%)',
+            }} />
+
+            <video
+              ref={billboardVideoRef}
+              src="/assets/videos/billboard.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              data-video="billboard"
+              style={{
+                position: 'absolute', inset: 0, width: '100%', height: '100%',
+                objectFit: 'cover', display: 'block', zIndex: 1,
+                transformOrigin: 'center center', willChange: 'transform',
+              }}
+              onError={(e) => {
+                const video = e.target as HTMLVideoElement
+                video.style.display = 'none'
+              }}
+            />
+            <div style={{
+              position: 'absolute', inset: 0, zIndex: 2,
+              background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.6) 100%)',
+              pointerEvents: 'none',
+            }} />
+            <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="#2DD4BF" />
+          </div>
+
+          {/* Billboard text */}
+          <div style={{ marginTop: '64px', textAlign: 'center', position: 'relative', zIndex: 2 }}>
+            <motion.p
+              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.4, ease: EXPO }}
+              style={{
+                fontSize: 'clamp(30px, 4.2vw, 60px)', fontWeight: 200,
+                letterSpacing: '-0.03em', lineHeight: 1.1, color: 'white', marginBottom: '20px',
+              }}
+            >
+              Puerto Rico's Future is Here.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              style={{
+                fontSize: '11px', fontWeight: 500, letterSpacing: '0.36em',
+                textTransform: 'uppercase', color: 'rgba(255,255,255,0.22)', marginTop: '8px',
+              }}
+            >
+              The Operating System For Modern Businesses
+            </motion.p>
+          </div>
+        </div>
 
         <CinematicFooter />
       </section>
