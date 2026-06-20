@@ -117,6 +117,10 @@ export function TestimonialStack({ testimonials, visibleBehind = 2 }: Testimonia
           transition: isDragging && isActive
             ? 'none'
             : 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease',
+          // Solid background — backdrop-filter is unreliable in production builds
+          background: '#061412',
+          border: '1px solid rgba(45,212,191,0.2)',
+          boxShadow: '0 32px 64px rgba(0,0,0,0.9), 0 0 0 1px rgba(45,212,191,0.06)',
         }
 
         if (displayOrder === 0) {
@@ -138,7 +142,7 @@ export function TestimonialStack({ testimonials, visibleBehind = 2 }: Testimonia
         return (
           <div
             key={testimonial.id}
-            className="glass-effect"
+            className="testimonial-card"
             style={cardStyle}
             onPointerDown={isActive ? handlePointerDown : undefined}
             onPointerMove={isActive ? handlePointerMove : undefined}
