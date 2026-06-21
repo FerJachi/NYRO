@@ -254,23 +254,70 @@ export default function Problem() {
             />
           </motion.div>
 
-          {/* Bottom transition */}
-          <motion.div
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.8 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
-          >
-            <div style={{
-              width: '100%', height: '1px',
-              background: 'rgba(255,255,255,0.06)', marginTop: '96px',
-            }} />
-            <p style={{
-              fontSize: '13px', fontWeight: 300, letterSpacing: '0.18em',
-              color: 'rgba(255,255,255,0.2)', textAlign: 'center', padding: '32px 0 0',
-            }}>
-              What if there was another way.
-            </p>
-          </motion.div>
+          {/* Bottom — What if there was another way */}
+          <div style={{ marginTop: '96px' }}>
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.8, ease: [0.16,1,0.3,1], delay: 0.1 }}
+              data-reveal="scale"
+              style={{
+                width: '40px',
+                height: '1px',
+                background: 'rgba(45,212,191,0.5)',
+                margin: '0 auto 0',
+                transformOrigin: 'left center',
+              }}
+            />
+
+            <motion.div
+              initial={{ opacity: 0, filter: 'blur(12px)' }}
+              whileInView={{ opacity: 1, filter: 'blur(0px)' }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.9, ease: [0.16,1,0.3,1], delay: 0.25 }}
+              data-reveal="blur"
+              style={{
+                width: '100%',
+                padding: '80px 56px',
+                textAlign: 'center',
+                position: 'relative',
+              }}
+            >
+              <p style={{
+                fontSize: '11px',
+                fontWeight: 600,
+                letterSpacing: '0.4em',
+                textTransform: 'uppercase',
+                color: 'rgba(45,212,191,0.6)',
+                marginBottom: '24px',
+              }}>
+                There is a better way.
+              </p>
+
+              <h2 style={{
+                fontSize: 'clamp(32px, 5vw, 64px)',
+                fontWeight: 200,
+                letterSpacing: '-0.025em',
+                color: 'white',
+                lineHeight: 1.15,
+                margin: '0 auto',
+                maxWidth: '700px',
+              }}>
+                What if there was
+                <span style={{
+                  display: 'block',
+                  background: 'linear-gradient(135deg, #2DD4BF 0%, #5EEAD4 50%, #0D9488 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  fontWeight: 300,
+                }}>
+                  another way.
+                </span>
+              </h2>
+            </motion.div>
+          </div>
         </div>
       </section>
     </>
