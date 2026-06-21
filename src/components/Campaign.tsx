@@ -242,27 +242,103 @@ export default function Campaign() {
             zIndex: 2,
           }} />
 
-          <div style={{
-            position: 'relative',
-            zIndex: 3,
-            textAlign: 'center',
-          }}>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.16,1,0.3,1], delay: 0.3 }}
+          <motion.div
+            style={{
+              position: 'relative',
+              zIndex: 3,
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '20px',
+            }}
+          >
+            <motion.div
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: 1, opacity: 1 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
               style={{
-                fontSize: '11px',
-                fontWeight: 600,
-                letterSpacing: '0.35em',
+                width: '40px',
+                height: '1px',
+                background: 'rgba(45,212,191,0.6)',
+                transformOrigin: 'left center',
+              }}
+            />
+
+            <motion.p
+              initial={{ opacity: 0, y: 16, filter: 'blur(6px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              style={{
+                fontSize: 'clamp(13px, 1.6vw, 18px)',
+                fontWeight: 700,
+                letterSpacing: '0.45em',
                 textTransform: 'uppercase',
-                color: 'rgba(45,212,191,0.7)',
+                color: 'rgba(45,212,191,0.9)',
               }}
             >
               05 / The Campaign
             </motion.p>
-          </div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 50, filter: 'blur(12px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+              style={{
+                fontSize: 'clamp(56px, 10vw, 140px)',
+                fontWeight: 800,
+                letterSpacing: '-0.05em',
+                color: 'white',
+                lineHeight: 0.95,
+                margin: 0,
+              }}
+            >
+              NYRO
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
+              style={{
+                fontSize: 'clamp(11px, 1.2vw, 14px)',
+                fontWeight: 500,
+                letterSpacing: '0.35em',
+                textTransform: 'uppercase',
+                color: 'rgba(255,255,255,0.4)',
+              }}
+            >
+              Puerto Rico · Billboard Campaign 2025
+            </motion.p>
+
+            <motion.div
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: 1, opacity: 1 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 1.0 }}
+              style={{
+                width: '40px',
+                height: '1px',
+                background: 'rgba(45,212,191,0.4)',
+                transformOrigin: 'center center',
+              }}
+            />
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1.3 }}
+              style={{
+                fontSize: '10px',
+                fontWeight: 500,
+                letterSpacing: '0.3em',
+                textTransform: 'uppercase',
+                color: 'rgba(255,255,255,0.2)',
+                marginTop: '16px',
+              }}
+            >
+              Scroll to explore
+            </motion.p>
+          </motion.div>
         </div>
 
         {/* ── BLOCK 4: The Plan heading ─────────────────────────────────── */}
