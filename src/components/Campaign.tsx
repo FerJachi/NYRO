@@ -438,8 +438,29 @@ export default function Campaign() {
             {
               month: 'Month 03',
               number: '03',
-              title: 'Freedom Campaign',
+              title: 'Conversion and Launch',
               tagline: 'Phase Three',
+              description: "Full conversion activation. Executive demos. The Freedom Package launch. Limited early access for Puerto Rico's top 100 businesses. The island's most anticipated business platform officially opens.",
+              tactics: [
+                'NYRO official launch event at a premium San Juan venue with cinematic production',
+                'Freedom Package announcement with exclusive pricing for first 100 businesses',
+                'Full-funnel paid campaign across Meta Google and LinkedIn driving demo signups',
+                "Strategic presence at Puerto Rico's leading business forums and entrepreneur summits",
+                'Launch day social media push with real-time countdown and CEO testimonials going live',
+              ],
+              gradientColors: [
+                'rgba(13,148,136,0.8)',
+                'rgba(6,80,80,0.6)',
+                'rgba(2,30,30,0.9)',
+              ],
+              accentColor: '#2DD4BF',
+              videoSrc: '/assets/videos/mall.mp4',
+            },
+            {
+              month: 'Month 04',
+              number: '04',
+              title: 'Freedom Campaign',
+              tagline: 'Phase Four',
               description: 'Full cinematic content rollout. The CEO lifestyle stories go live. Control Without Presence at scale across digital and out-of-home channels throughout Puerto Rico.',
               tactics: [
                 'Release beach cafe and morning lifestyle video series across all platforms',
@@ -457,10 +478,10 @@ export default function Campaign() {
               videoSrc: '/assets/videos/beach.mp4',
             },
             {
-              month: 'Month 04',
-              number: '04',
+              month: 'Month 05',
+              number: '05',
               title: 'Authority and Trust',
-              tagline: 'Phase Four',
+              tagline: 'Phase Five',
               description: "Press coverage. Executive interviews. Thought leadership positioning across Puerto Rico's leading business publications and networks. NYRO becomes the platform serious business owners talk about.",
               tactics: [
                 'Executive interview series with NYRO founders in Caribbean Business and Negocios Now',
@@ -478,10 +499,10 @@ export default function Campaign() {
               videoSrc: '/assets/videos/owner-breakfast.mp4',
             },
             {
-              month: 'Month 05',
-              number: '05',
+              month: 'Month 06',
+              number: '06',
               title: 'Growth Stories',
-              tagline: 'Phase Five',
+              tagline: 'Phase Six',
               description: 'Real business transformation narratives. Case studies produced as cinematic mini-documentaries. Trust through proof not promise. The first NYRO users become the most powerful marketing tool.',
               tactics: [
                 'Release three cinematic customer story mini-documentaries on YouTube and social',
@@ -497,27 +518,6 @@ export default function Campaign() {
               ],
               accentColor: '#5EEAD4',
               videoSrc: '/assets/videos/miramar.mp4',
-            },
-            {
-              month: 'Month 06',
-              number: '06',
-              title: 'Conversion and Launch',
-              tagline: 'Phase Six',
-              description: "Full conversion activation. Executive demos. The Freedom Package launch. Limited early access for Puerto Rico's top 100 businesses. The island's most anticipated business platform officially opens.",
-              tactics: [
-                'NYRO official launch event at a premium San Juan venue with cinematic production',
-                'Freedom Package announcement with exclusive pricing for first 100 businesses',
-                'Full-funnel paid campaign across Meta Google and LinkedIn driving demo signups',
-                "Strategic presence at Puerto Rico's leading business forums and entrepreneur summits",
-                'Launch day social media push with real-time countdown and CEO testimonials going live',
-              ],
-              gradientColors: [
-                'rgba(13,148,136,0.8)',
-                'rgba(6,80,80,0.6)',
-                'rgba(2,30,30,0.9)',
-              ],
-              accentColor: '#2DD4BF',
-              videoSrc: '/assets/videos/mall.mp4',
             },
           ]}
         />
