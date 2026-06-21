@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import gsap from 'gsap'
 import nyroLogoWebsite from '../../assets/nyro-logo-website.png'
 import { NyroButton } from './rainbow-borders-button'
@@ -58,6 +59,13 @@ export default function CinematicHero({ onEnter }: CinematicHeroProps) {
   const logoRef         = useRef<HTMLImageElement>(null)  // NYRO logo — zoomed on enter
   const [isMobile, setIsMobile] = useState(false)
   const [entered, setEntered]   = useState(false)
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  })
+  const parallaxY       = useTransform(scrollYProgress, [0, 1], [0, -120])
+  const parallaxOpacity = useTransform(scrollYProgress, [0, 0.55], [1, 0])
 
   // Inject styles once
   useEffect(() => {
@@ -172,13 +180,15 @@ export default function CinematicHero({ onEnter }: CinematicHeroProps) {
       }}
     >
       {/* ── Centered content column ── */}
-      <div style={{
+      <motion.div style={{
         position: 'relative', zIndex: 2,
         display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center',
         width: '100%', height: '100svh',
         padding: '24px 24px 40px',
         gap: '32px',
+        y: parallaxY,
+        opacity: parallaxOpacity,
       }}>
 
         {/* ── Logo + teal glow ── */}
@@ -242,7 +252,7 @@ export default function CinematicHero({ onEnter }: CinematicHeroProps) {
           </svg>
         </NyroButton>
 
-      </div>
+      </motion.div>
     </section>
   )
 }
