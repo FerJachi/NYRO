@@ -17,6 +17,37 @@ export default function App() {
   // Always start at the top — prevents browser scroll-position restoration
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
+  // Global data-reveal IntersectionObserver — runs after sections mount
+  useEffect(() => {
+    if (!hasEntered) return
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduced) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -5% 0px' }
+    )
+
+    document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el))
+
+    const timerId = window.setTimeout(() => {
+      document.querySelectorAll('[data-reveal]:not(.revealed)')
+        .forEach((el) => observer.observe(el))
+    }, 500)
+
+    return () => {
+      observer.disconnect()
+      clearTimeout(timerId)
+    }
+  }, [hasEntered])
+
   // Fade out the black overlay when presentation loads; snap to vision while overlay covers screen
   useEffect(() => {
     if (!hasEntered) return

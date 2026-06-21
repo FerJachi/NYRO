@@ -69,14 +69,17 @@ export default function Campaign() {
           position: 'relative',
           overflow: 'hidden',
         }}>
-          <p style={{
-            fontSize: '11px',
-            fontWeight: 600,
-            letterSpacing: '0.35em',
-            textTransform: 'uppercase',
-            color: 'rgba(45,212,191,0.5)',
-            marginBottom: '32px',
-          }}>
+          <p
+            data-reveal="left"
+            style={{
+              fontSize: '11px',
+              fontWeight: 600,
+              letterSpacing: '0.35em',
+              textTransform: 'uppercase',
+              color: 'rgba(45,212,191,0.5)',
+              marginBottom: '32px',
+            }}
+          >
             Control Without Presence
           </p>
 
@@ -123,16 +126,20 @@ export default function Campaign() {
             </motion.span>
           </h2>
 
-          <p style={{
-            fontSize: '16px',
-            fontWeight: 300,
-            color: 'rgba(255,255,255,0.4)',
-            letterSpacing: '0.04em',
-            marginTop: '32px',
-            maxWidth: '480px',
-            margin: '32px auto 0',
-            lineHeight: 1.7,
-          }}>
+          <p
+            data-reveal
+            data-reveal-delay="4"
+            style={{
+              fontSize: '16px',
+              fontWeight: 300,
+              color: 'rgba(255,255,255,0.4)',
+              letterSpacing: '0.04em',
+              marginTop: '32px',
+              maxWidth: '480px',
+              margin: '32px auto 0',
+              lineHeight: 1.7,
+            }}
+          >
             The operating system for modern businesses that refuse to be tied to one place.
           </p>
 
@@ -343,14 +350,17 @@ export default function Campaign() {
           padding: '100px 56px 60px',
           position: 'relative',
         }}>
-          <p style={{
-            fontSize: '11px',
-            fontWeight: 600,
-            letterSpacing: '0.35em',
-            textTransform: 'uppercase',
-            color: 'rgba(45,212,191,0.6)',
-            marginBottom: '20px',
-          }}>
+          <p
+            data-reveal="left"
+            style={{
+              fontSize: '11px',
+              fontWeight: 600,
+              letterSpacing: '0.35em',
+              textTransform: 'uppercase',
+              color: 'rgba(45,212,191,0.6)',
+              marginBottom: '20px',
+            }}
+          >
             06 / The Plan
           </p>
           <h2 style={{
@@ -375,13 +385,17 @@ export default function Campaign() {
               </motion.span>
             ))}
           </h2>
-          <p style={{
-            fontSize: '16px',
-            fontWeight: 300,
-            color: 'rgba(255,255,255,0.35)',
-            maxWidth: '520px',
-            letterSpacing: '0.02em',
-          }}>
+          <p
+            data-reveal
+            data-reveal-delay="3"
+            style={{
+              fontSize: '16px',
+              fontWeight: 300,
+              color: 'rgba(255,255,255,0.35)',
+              maxWidth: '520px',
+              letterSpacing: '0.02em',
+            }}
+          >
             A sequenced roadmap to make NYRO the most recognized business platform in Puerto Rico.
           </p>
         </div>

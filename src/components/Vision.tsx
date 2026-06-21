@@ -226,15 +226,23 @@ export default function Vision() {
           bottom: '40px',
           left: '50%',
           transform: 'translateX(-50%)',
-          fontSize: '10px',
-          fontWeight: 500,
-          letterSpacing: '0.3em',
-          textTransform: 'uppercase',
-          color: 'rgba(255,255,255,0.25)',
           zIndex: 2,
           whiteSpace: 'nowrap',
         }}>
-          Scroll to Enter
+          <span
+            data-reveal
+            data-reveal-delay="6"
+            style={{
+              display: 'block',
+              fontSize: '10px',
+              fontWeight: 500,
+              letterSpacing: '0.3em',
+              textTransform: 'uppercase',
+              color: 'rgba(255,255,255,0.25)',
+            }}
+          >
+            Scroll to Enter
+          </span>
         </div>
       </div>
 

@@ -194,28 +194,30 @@ export default function CinematicFooter() {
           Control Without Presence.
         </h2>
 
-        <button
-          ref={btnRef}
-          data-hover
-          aria-label="Experience NYRO"
-          onClick={() => document.getElementById('vision')?.scrollIntoView({ behavior: 'smooth' })}
-          onMouseEnter={() => setBtnHovered(true)}
-          onMouseLeave={() => setBtnHovered(false)}
-          style={{
-            display: 'inline-flex', alignItems: 'center', gap: '12px',
-            padding: isMobile ? '16px 48px' : '18px 60px',
-            background: 'linear-gradient(135deg, #0D9488 0%, #2DD4BF 50%, #5EEAD4 100%)',
-            color: '#000000', fontSize: '11px', fontWeight: 700,
-            letterSpacing: '0.22em', textTransform: 'uppercase',
-            border: 'none', cursor: 'none',
-            boxShadow: btnHovered ? '0 0 60px rgba(45,212,191,0.45)' : '0 0 40px rgba(45,212,191,0.25)',
-            transform: btnHovered ? 'scale(1.03)' : 'scale(1)',
-            transition: 'box-shadow 0.3s ease, transform 0.3s ease',
-            willChange: 'transform',
-          }}
-        >
-          Experience NYRO
-        </button>
+        <div data-reveal="scale" data-reveal-delay="3">
+          <button
+            ref={btnRef}
+            data-hover
+            aria-label="Experience NYRO"
+            onClick={() => document.getElementById('vision')?.scrollIntoView({ behavior: 'smooth' })}
+            onMouseEnter={() => setBtnHovered(true)}
+            onMouseLeave={() => setBtnHovered(false)}
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '12px',
+              padding: isMobile ? '16px 48px' : '18px 60px',
+              background: 'linear-gradient(135deg, #0D9488 0%, #2DD4BF 50%, #5EEAD4 100%)',
+              color: '#000000', fontSize: '11px', fontWeight: 700,
+              letterSpacing: '0.22em', textTransform: 'uppercase',
+              border: 'none', cursor: 'none',
+              boxShadow: btnHovered ? '0 0 60px rgba(45,212,191,0.45)' : '0 0 40px rgba(45,212,191,0.25)',
+              transform: btnHovered ? 'scale(1.03)' : 'scale(1)',
+              transition: 'box-shadow 0.3s ease, transform 0.3s ease',
+              willChange: 'transform',
+            }}
+          >
+            Experience NYRO
+          </button>
+        </div>
       </div>
 
       {/* Bottom bar */}
@@ -226,18 +228,26 @@ export default function CinematicFooter() {
         display: 'flex', flexDirection: 'column',
         alignItems: 'center', gap: '6px', textAlign: 'center',
       }}>
-        <span style={{
-          fontSize: '10px', fontWeight: 400,
-          letterSpacing: '0.16em', textTransform: 'uppercase',
-          color: 'rgba(255,255,255,0.25)',
-        }}>
+        <span
+          data-reveal
+          data-reveal-delay="4"
+          style={{
+            fontSize: '10px', fontWeight: 400,
+            letterSpacing: '0.16em', textTransform: 'uppercase',
+            color: 'rgba(255,255,255,0.25)',
+          }}
+        >
           2025 NYRO. All rights reserved.
         </span>
-        <span style={{
-          fontSize: '10px', fontWeight: 400,
-          letterSpacing: '0.16em', textTransform: 'uppercase',
-          color: 'rgba(255,255,255,0.25)',
-        }}>
+        <span
+          data-reveal
+          data-reveal-delay="5"
+          style={{
+            fontSize: '10px', fontWeight: 400,
+            letterSpacing: '0.16em', textTransform: 'uppercase',
+            color: 'rgba(255,255,255,0.25)',
+          }}
+        >
           Built for Puerto Rico&apos;s future leaders.
         </span>
       </div>
