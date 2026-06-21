@@ -296,21 +296,6 @@ export default function Campaign() {
               NYRO
             </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
-              style={{
-                fontSize: 'clamp(11px, 1.2vw, 14px)',
-                fontWeight: 500,
-                letterSpacing: '0.35em',
-                textTransform: 'uppercase',
-                color: 'rgba(255,255,255,0.4)',
-              }}
-            >
-              Puerto Rico · Billboard Campaign 2025
-            </motion.p>
-
             <motion.div
               initial={{ scaleX: 0, opacity: 0 }}
               animate={{ scaleX: 1, opacity: 1 }}

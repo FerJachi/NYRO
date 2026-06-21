@@ -284,17 +284,6 @@ export default function Problem() {
                 position: 'relative',
               }}
             >
-              <p style={{
-                fontSize: '11px',
-                fontWeight: 600,
-                letterSpacing: '0.4em',
-                textTransform: 'uppercase',
-                color: 'rgba(45,212,191,0.6)',
-                marginBottom: '24px',
-              }}>
-                There is a better way.
-              </p>
-
               <h2 style={{
                 fontSize: 'clamp(32px, 5vw, 64px)',
                 fontWeight: 200,
