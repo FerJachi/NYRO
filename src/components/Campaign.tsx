@@ -187,11 +187,11 @@ export default function Campaign() {
               description: 'NYRO handled everything before you woke up. Payroll processed. Inventory checked. Team briefed.',
               notificationText: 'Good morning. Everything is handled.',
               gradientColors: [
-                'rgba(6,60,80,0.9)',
-                'rgba(20,120,110,0.6)',
-                'rgba(2,25,35,0.9)',
+                'rgba(13,100,136,0.85)',
+                'rgba(8,60,90,0.6)',
+                'rgba(2,20,40,0.9)',
               ],
-              accentColor: '#5EEAD4',
+              accentColor: '#2DD4BF',
             },
           ]}
         />
