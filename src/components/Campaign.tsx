@@ -434,9 +434,9 @@ export default function Campaign() {
                 'Launch day social media push with real-time countdown and CEO testimonials going live',
               ],
               gradientColors: [
-                'rgba(13,148,136,0.8)',
-                'rgba(6,80,80,0.6)',
-                'rgba(2,30,30,0.9)',
+                'rgba(13,100,136,0.85)',
+                'rgba(8,60,90,0.6)',
+                'rgba(2,20,40,0.9)',
               ],
               accentColor: '#2DD4BF',
               videoSrc: '/assets/videos/mall.mp4',
