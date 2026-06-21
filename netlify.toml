@@ -2,6 +2,20 @@
   command = "npm run build"
   publish = "dist"
 
+[build.environment]
+  NODE_VERSION = "18"
+
+[[plugins]]
+
+[context.production]
+  command = "npm run build"
+
+[context.deploy-preview]
+  command = "echo 'Skipping preview deploy'"
+
+[context.branch-deploy]
+  command = "echo 'Skipping branch deploy'"
+
 [[headers]]
   for = "/assets/videos/*"
   [headers.values]
