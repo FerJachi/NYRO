@@ -153,7 +153,7 @@ export default function Campaign() {
           scenes={[
             {
               id: 'beach',
-              videoSrc: '/assets/videos/beach.mp4',
+              videoSrc: '/assets/videos/beach.mp4?v=2',
               bigWord: 'BEACH',
               title: 'Beachside. Full control.',
               description: 'The business runs. The waves do not wait. NYRO monitors every operation in real time while you enjoy the moment you earned.',
@@ -167,7 +167,7 @@ export default function Campaign() {
             },
             {
               id: 'cafe',
-              videoSrc: '/assets/videos/cafe.mp4',
+              videoSrc: '/assets/videos/cafe.mp4?v=2',
               bigWord: 'CAFE',
               title: 'From anywhere in the world.',
               description: 'A laptop. An espresso. A business running thousands of miles away with full executive visibility.',
@@ -181,7 +181,7 @@ export default function Campaign() {
             },
             {
               id: 'morning',
-              videoSrc: '/assets/videos/morning.mp4',
+              videoSrc: '/assets/videos/morning.mp4?v=2',
               bigWord: 'MORNING',
               title: 'Your morning. Your rules.',
               description: 'NYRO handled everything before you woke up. Payroll processed. Inventory checked. Team briefed.',
@@ -460,7 +460,7 @@ export default function Campaign() {
                 'rgba(2,25,35,0.9)',
               ],
               accentColor: '#5EEAD4',
-              videoSrc: '/assets/videos/beach.mp4',
+              videoSrc: '/assets/videos/beach.mp4?v=2',
             },
             {
               month: 'Month 05',
